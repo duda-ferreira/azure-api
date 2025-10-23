@@ -26,7 +26,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npm run build --if-present
+          npm run build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -50,6 +50,6 @@ jobs:
         with:
           app-name: 'azure-apiteste'
           slot-name: 'Production'
-          package: .
+          package: ./dist
 
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_91E1CD70C7D44E83A78235C1A625108B }}
